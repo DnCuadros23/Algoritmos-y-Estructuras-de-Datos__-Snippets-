@@ -1,1 +1,0 @@
-# Algoritmos-y-Estructuras-de-Datos__-Snippets-
