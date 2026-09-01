@@ -16,4 +16,6 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Plantilla.cpp
         Ejercicios_Sem_3/Cajas.cpp
         Ejercicios_Sem_3/Josephus.cpp
-        Ejercicios_Sem_3/Polinomios.cpp)
+        Ejercicios_Sem_3/Polinomios.cpp
+        "Ejercicios_Sem_3/Round Robin.cpp"
+        "Ejercicios_Sem_3/Doubly Linked List.cpp")
