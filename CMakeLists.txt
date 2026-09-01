@@ -12,8 +12,8 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Lista_doblemente_enlazada.cpp
         Lista_doble_puntero.cpp
         main.cpp
-        Ejercicios_/Books_Exchange.cpp
+        Ejercicios_Sem_3/Books_Exchange.cpp
         Plantilla.cpp
-        Ejercicios_/Cajas.cpp
-        Ejercicios_/Josephus.cpp
-        Ejercicios_/Polinomios.cpp)
+        Ejercicios_Sem_3/Cajas.cpp
+        Ejercicios_Sem_3/Josephus.cpp
+        Ejercicios_Sem_3/Polinomios.cpp)
