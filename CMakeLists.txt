@@ -11,4 +11,7 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Lista_circular.cpp
         Lista_doblemente_enlazada.cpp
         Lista_doble_puntero.cpp
-        main.cpp)
+        main.cpp
+        Ejercicios_/Books_Exchange.cpp
+        Plantilla.cpp
+        Ejercicios_/Cajas.cpp)
