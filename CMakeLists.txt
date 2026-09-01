@@ -15,4 +15,5 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_/Books_Exchange.cpp
         Plantilla.cpp
         Ejercicios_/Cajas.cpp
-        Ejercicios_/Josephus.cpp)
+        Ejercicios_/Josephus.cpp
+        Ejercicios_/Polinomios.cpp)
