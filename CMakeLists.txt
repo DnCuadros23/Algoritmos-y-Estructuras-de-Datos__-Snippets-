@@ -20,4 +20,10 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         "Ejercicios_Sem_3/Round Robin.cpp"
         "Ejercicios_Sem_3/Doubly Linked List.cpp"
         Ejercicios_Sem_3/Cajas_ptr.cpp
-        Ejercicios_Sem_3/Apuntes.cpp)
+        Ejercicios_Sem_3/Apuntes.cpp
+        Ejercicios_Sem_3/stack,queue,deque/Stack.cpp
+        Ejercicios_Sem_3/stack,queue,deque/queue.cpp
+        Ejercicios_Sem_3/stack,queue,deque/deque.cpp
+        unordered_map.cpp
+        Ejercicios_Sem_3/stack,queue,deque/H_Maximum_Trace.cpp
+        Ejercicios_Sem_3/stack,queue,deque/D.cpp)
