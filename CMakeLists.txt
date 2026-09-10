@@ -26,4 +26,9 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_Sem_3/stack,queue,deque/deque.cpp
         unordered_map.cpp
         Ejercicios_Sem_3/stack,queue,deque/H_Maximum_Trace.cpp
-        Ejercicios_Sem_3/stack,queue,deque/D.cpp)
+        Ejercicios_Sem_3/stack,queue,deque/D.cpp
+        Ejercicios_Sem_5/A.cpp
+        hash_table.cpp
+        Ejercicios_Sem_5/B.cpp
+        Ejercicios_Sem_5/C.cpp
+        Ejercicios_Sem_5/E.cpp)
