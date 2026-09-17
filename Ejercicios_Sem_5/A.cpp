@@ -64,7 +64,7 @@ int main() {
     cin.tie(0) -> sync_with_stdio(false);
     int n, q;
     cin >> n >> q;
-    my_map<int, int> frecuencias;
+    my_map<int, int> frecuencias(n);
     for (int i = 0; i < n; ++i) {
         int x;
         cin >> x;

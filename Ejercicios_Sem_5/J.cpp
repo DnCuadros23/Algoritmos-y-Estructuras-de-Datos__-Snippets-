@@ -228,49 +228,12 @@ struct my_map {
     }
 };
 
-//  DE AQUI PARA ABAJO SE REEMPLAZA EN CADA PROBLEMA.
-//  Lo de arriba nunca se toca.
+
+
 int main() {
-    cin.tie(0)->sync_with_stdio(false);
 
-    int n;
-    cin >> n;
 
-    my_map<int, int> freq(2 * n);
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        ++freq[x];
-    }
 
-    cout << freq.size() << '\n';
+
     return 0;
 }
-
-/*
-++freq[x];              // contar (crea en 0 si no existe)
-freq.get(x, 0)          // consultar SIN insertar
-freq.has_key(x)         // ¿existe?
-freq.erase(x)           // borrar, O(1)
-freq.size()             // cuántas claves distintas
-*/
-
-/* my_map<int,int> freq(2 * n);   // si conoces n: evita rehashes
-my_map<int,int> freq;          // si no: crece sola*/
-
-/*
-my_map<int,int> f(n);   // crear (n = tamano estimado)
-++f[x];                 // contar (crea en 0 si no existe)
-f[x] = 5;               // asignar (o f.set(x, 5))
-f.add(x, 1);            // sumar d al valor de x
-f.get(x, 0)             // consultar SIN insertar
-f.find(x)               // puntero al valor, o 0 si no esta
-f.has_key(x)            // existe? true/false
-f.erase(x);             // borrar, O(1)
-f.size()                // cuantas claves distintas
-f.empty()               // esta vacio?
-f.clear();              // vaciar todo
-f.keys()                // vector<K> de claves (desordenado)
-f.values()              // vector<V> de valores
-f.items()               // vector<pair<K,V>>
-*/

@@ -30,5 +30,12 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_Sem_5/A.cpp
         hash_table.cpp
         Ejercicios_Sem_5/B.cpp
+        Ejercicios_Sem_5/D.cpp
+        Ejercicios_Sem_5/E.cpp
+        Ejercicios_Sem_6/BST.cpp
         Ejercicios_Sem_5/C.cpp
-        Ejercicios_Sem_5/E.cpp)
+        Ejercicios_Sem_5/F.cpp
+        Ejercicios_Sem_5/G.cpp
+        Ejercicios_Sem_5/H.cpp
+        Ejercicios_Sem_5/I.cpp
+        Ejercicios_Sem_5/J.cpp)

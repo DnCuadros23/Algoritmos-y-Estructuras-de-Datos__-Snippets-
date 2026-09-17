@@ -13,10 +13,6 @@ typedef unsigned long long ull;
 // Enteros con signo: polinomio en base B sobre los digitos.
 // El do-while procesa el 0, y el signo entra en el valor inicial
 // para que -12 y 12 no caigan en el mismo bucket.
-
-
-
-//---------Funciones hashing-------
 ull hash_valor(long long k) {
     const ull B = 311, MOD = 1000000007ULL;
     ull h = (k < 0 ? 1 : 2);
@@ -27,7 +23,6 @@ ull hash_valor(long long k) {
     } while (x > 0);
     return h;
 }
-
 
 // Enteros sin signo: mismo polinomio, nunca hay signo que codificar.
 ull hash_valor(unsigned long long k) {
@@ -79,7 +74,7 @@ struct my_map {
     int m;              // cantidad de buckets
     int n;              // cantidad de claves guardadas
     vector<vector<pair<K, V> > > chains;
-    //Crear mapa
+
     my_map(int m_ini = 101) : m(primo_desde(m_ini)), n(0) {
         chains.assign(m, vector<pair<K, V> >());
     }
@@ -119,16 +114,16 @@ struct my_map {
             for (int i = 0; i < (int)viejo[b].size(); ++i)
                 chains[bucket_de(viejo[b][i].first)].push_back(viejo[b][i]);
     }
-    //tamaño
+
     int size() const { return n; }
-    //vacio ?
+
     bool empty() const { return n == 0; }
-    //vacia todo
+
     void clear() {
         chains.assign(m, vector<pair<K, V> >());
         n = 0;
     }
-    //esta x ?
+
     bool has_key(const K &key) const {
         return pos_en(bucket_de(key), key) != -1;
     }
@@ -140,7 +135,7 @@ struct my_map {
         int i = pos_en(b, key);
         return (i == -1 ? (V*)0 : &chains[b][i].second);
     }
-    //
+
     const V* find(const K &key) const {
         int b = bucket_de(key);
         int i = pos_en(b, key);
@@ -168,7 +163,7 @@ struct my_map {
         ++n;
         return chains[b].back().second;
     }
-    //set(x,v) x con su valor
+
     void set(const K &key, const V &val) {
         (*this)[key] = val;
     }
@@ -230,47 +225,20 @@ struct my_map {
 
 //  DE AQUI PARA ABAJO SE REEMPLAZA EN CADA PROBLEMA.
 //  Lo de arriba nunca se toca.
-int main() {
-    cin.tie(0)->sync_with_stdio(false);
-
-    int n;
-    cin >> n;
-
-    my_map<int, int> freq(2 * n);
+int main () {
+    cin.tie(0) -> sync_with_stdio(false);
+    long long n, x;
+    cin >> n >> x;
+    my_map<long long, long long> cont(2 * n);
+    cont[0] = 1;
+    long long suma = 0, resp = 0;
     for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        ++freq[x];
+        long long a;
+        cin >> a;
+        suma += a;
+        resp += cont.get(suma - x, 0);
+        ++cont[suma];
     }
-
-    cout << freq.size() << '\n';
+    cout << resp << '\n';
     return 0;
 }
-
-/*
-++freq[x];              // contar (crea en 0 si no existe)
-freq.get(x, 0)          // consultar SIN insertar
-freq.has_key(x)         // ¿existe?
-freq.erase(x)           // borrar, O(1)
-freq.size()             // cuántas claves distintas
-*/
-
-/* my_map<int,int> freq(2 * n);   // si conoces n: evita rehashes
-my_map<int,int> freq;          // si no: crece sola*/
-
-/*
-my_map<int,int> f(n);   // crear (n = tamano estimado)
-++f[x];                 // contar (crea en 0 si no existe)
-f[x] = 5;               // asignar (o f.set(x, 5))
-f.add(x, 1);            // sumar d al valor de x
-f.get(x, 0)             // consultar SIN insertar
-f.find(x)               // puntero al valor, o 0 si no esta
-f.has_key(x)            // existe? true/false
-f.erase(x);             // borrar, O(1)
-f.size()                // cuantas claves distintas
-f.empty()               // esta vacio?
-f.clear();              // vaciar todo
-f.keys()                // vector<K> de claves (desordenado)
-f.values()              // vector<V> de valores
-f.items()               // vector<pair<K,V>>
-*/

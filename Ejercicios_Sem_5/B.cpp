@@ -79,7 +79,7 @@ int main() {
     cin.tie(0) -> sync_with_stdio(false);
     int n;
     cin >> n;
-    my_map<int, int> frecuencias(2 * n);
+    my_map<int, int> frecuencias(2*n);
     for (int i = 0; i < n; ++i) {
         int x;
         cin >> x;
