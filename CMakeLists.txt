@@ -51,4 +51,7 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_Sem_5/Lista_/Subarray_Sums_II.cpp
         Ejercicios_Sem_5/Lista_/Romantic_Glasses.cpp
         "Ejercicios_Sem_5/Lista_/Monocarp's String.cpp"
+        EC3_Luciano/C.cpp
+        EC3_Luciano/B.cpp
+        EC3_Luciano/A.cpp
 )
