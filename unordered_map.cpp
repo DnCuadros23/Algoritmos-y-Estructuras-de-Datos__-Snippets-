@@ -5,7 +5,7 @@
 using namespace std;
 
 
-
+//https://github.com/DnCuadros23/Algoritmos-y-Estructuras-de-Datos__-Snippets-.git
 typedef unsigned long long ull;
 
 //  FUNCIONES HASH  (TODAS globales, fuera del struct)
