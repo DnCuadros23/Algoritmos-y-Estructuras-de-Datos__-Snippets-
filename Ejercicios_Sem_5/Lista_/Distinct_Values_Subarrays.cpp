@@ -230,21 +230,26 @@ struct my_map {
 
 
 
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
+int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+    if (!(cin>>n)) return 0;
+    my_map <int,int> ultima_posicion;
+    int inicio=0;
+    long long conteo=0;
+    for (int i=0; i<n; ++i) {
+        int valor;
+        cin>>valor;
+        if (ultima_posicion.has_key(valor)) {
+            int posicion_previa=ultima_posicion[valor];
+            if (posicion_previa>=inicio) {
+                inicio=posicion_previa+1;
+            }
+
+        }
+        conteo+=(i-inicio+1);
+        ultima_posicion[valor]=i;
     }
-    cout << n - mejor << '\n';
+    cout<<conteo<<"\n";
     return 0;
 }

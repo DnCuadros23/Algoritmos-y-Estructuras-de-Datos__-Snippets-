@@ -1,9 +1,10 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility>
 #include <algorithm>
 using namespace std;
+
+
 
 typedef unsigned long long ull;
 
@@ -69,7 +70,12 @@ ull hash_valor(const pair<int, int> &p) {
     const ull B = 1000003, MOD = 1000000007ULL;
     return ((ull)(unsigned int)p.first * B + (ull)(unsigned int)p.second + 1) % MOD;
 }
-
+ull hash_valor(const pair<long long, long long> &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = (ull)p.first % MOD;
+    h = (h * B + (ull)p.second) % MOD;
+    return h;
+}
 //  TABLA HASH CON ENCADENAMIENTO SEPARADO
 //  chains[b] guarda TODAS las claves cuyo hash cae en el bucket b.
 //  Manteniendo alpha = n/m acotado, cada operacion es O(1) esperado.
@@ -227,7 +233,22 @@ struct my_map {
         }
     }
 };
+struct Par {
+    long long a, b;
+    Par() : a(0), b(0) {}
+    Par(long long a, long long b) : a(a), b(b) {}
+};
 
+bool operator == (const Par &p, const Par &q) {
+    return p.a == q.a and p.b == q.b;
+}
+
+ull hash_valor(const Par &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = hash_valor(p.a);
+    h = (h * B + hash_valor(p.b)) % MOD;
+    return h;
+}
 //  DE AQUI PARA ABAJO SE REEMPLAZA EN CADA PROBLEMA.
 //  Lo de arriba nunca se toca.
 int main() {

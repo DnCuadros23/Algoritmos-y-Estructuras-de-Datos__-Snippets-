@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility>
 #include <algorithm>
 using namespace std;
 
@@ -69,7 +68,12 @@ ull hash_valor(const pair<int, int> &p) {
     const ull B = 1000003, MOD = 1000000007ULL;
     return ((ull)(unsigned int)p.first * B + (ull)(unsigned int)p.second + 1) % MOD;
 }
-
+ull hash_valor(const pair<long long, long long> &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = (ull)p.first % MOD;
+    h = (h * B + (ull)p.second) % MOD;
+    return h;
+}
 //  TABLA HASH CON ENCADENAMIENTO SEPARADO
 //  chains[b] guarda TODAS las claves cuyo hash cae en el bucket b.
 //  Manteniendo alpha = n/m acotado, cada operacion es O(1) esperado.
@@ -228,23 +232,27 @@ struct my_map {
     }
 };
 
-
-
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
+int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
+    long long x;
+    cin>>n>>x;
+    long long suma_acumulada=0;
+    long long conteo=0;
+    my_map<long long, int> hash_table;
+    hash_table[0]=1;
+
+    for (int i=0;i<n;++i) {
         long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+        cin>>a;
+        suma_acumulada+=a;
+        long long complemento=suma_acumulada-x;
+        if (hash_table.has_key(complemento)) {
+            conteo+=hash_table[complemento];
+        }
+        ++hash_table[suma_acumulada];
     }
-    cout << n - mejor << '\n';
+    cout<<conteo<<"\n";
+
     return 0;
 }

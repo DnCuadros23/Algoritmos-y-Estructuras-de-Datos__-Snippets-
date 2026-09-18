@@ -230,21 +230,29 @@ struct my_map {
 
 
 
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
+int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n;
+    vector<int> cnt(26, 0);
+    my_map<vector<int>, vector<string>> grupos;
     cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+    while (n--) {
+        string s;
+        cin >> s;
+        for (char c:s) {
+            cnt[c - 'a']+=1;
+        }
+        grupos[cnt].push_back(s);
+
     }
-    cout << n - mejor << '\n';
+    vector<vector<string>> resultado = grupos.values();
+    for (int i = 0; i < (int)resultado.size(); ++i) {
+        cout << "[ ";
+        for (int j = 0; j < (int)resultado[i].size(); ++j) {
+            cout << resultado[i][j] << " ";
+        }
+        cout << "]\n";
+    }
+    
     return 0;
 }

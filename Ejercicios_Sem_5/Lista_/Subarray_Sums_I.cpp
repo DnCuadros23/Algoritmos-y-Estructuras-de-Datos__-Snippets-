@@ -227,24 +227,27 @@ struct my_map {
         }
     }
 };
-
-
-
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
+int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
+    long long x;
+    if (!(cin>>n>>x)) return 0;
+    my_map<long long,long long> freq;
+    freq[0]=1;
+    long long  suma_acumulada=0;
+    long long conteo=0;
+    for (int i=0; i<n; ++i) {
         long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+        cin>>a;
+        suma_acumulada+=a;
+        long long complemento = suma_acumulada-x;
+        if (freq.has_key(complemento)) {
+            conteo+=freq[complemento];
+        }
+        freq[suma_acumulada]++;
     }
-    cout << n - mejor << '\n';
+    cout<<conteo<<"\n";
+
     return 0;
+
 }

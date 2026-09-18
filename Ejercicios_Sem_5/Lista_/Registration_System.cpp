@@ -229,22 +229,26 @@ struct my_map {
 };
 
 
-
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
+int main() {
+    cin.tie(0)->sync_with_stdio(false);
     int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+    if (!(cin>>n)) return 0;
+    my_map<string, int> conteo;
+    while (n--) {
+        string nombre;
+        cin>>nombre;
+        if (conteo.has_key(nombre)) {
+            cout<< nombre << conteo[nombre]<<"\n";
+            conteo[nombre]++;
+
+        }
+        else {
+            cout<<"OK\n";
+            conteo[nombre]=1;
+        }
+
     }
-    cout << n - mejor << '\n';
+
+
     return 0;
 }

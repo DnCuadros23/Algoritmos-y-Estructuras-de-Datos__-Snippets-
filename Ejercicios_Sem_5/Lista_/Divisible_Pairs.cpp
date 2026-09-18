@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility>
 #include <algorithm>
 using namespace std;
 
@@ -14,7 +13,12 @@ typedef unsigned long long ull;
 // El do-while procesa el 0, y el signo entra en el valor inicial
 // para que -12 y 12 no caigan en el mismo bucket.
 
-
+ull hash_valor(const pair<long long, long long> &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = (ull)p.first % MOD;
+    h = (h * B + (ull)p.second) % MOD;
+    return h;
+}
 
 //---------Funciones hashing-------
 ull hash_valor(long long k) {
@@ -228,23 +232,79 @@ struct my_map {
     }
 };
 
+struct Par {
+    long long a, b;
+    Par() : a(0), b(0) {}
+    Par(long long a, long long b) : a(a), b(b) {}
+};
 
+bool operator == (const Par &p, const Par &q) {
+    return p.a == q.a and p.b == q.b;
+}
 
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
-    int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+ull hash_valor(const Par &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = hash_valor(p.a);
+    h = (h * B + hash_valor(p.b)) % MOD;
+    return h;
+}
+
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n, x, y;
+        cin>>n>>x>>y;
+        my_map<Par, int> vistos(2 * n);
+        long long conteo=0;
+        for (int i=0; i<n; ++i) {
+            int a;
+            cin>>a;
+            long long formula_x=a%x;
+            long long formula_y=a%y;
+            long long complemento_x = (x - formula_x) % x;
+            conteo += vistos.get(Par(complemento_x, formula_y), 0);
+            ++vistos[Par(formula_x, formula_y)];
+        }
+        cout << conteo << '\n';
+
     }
-    cout << n - mejor << '\n';
+
     return 0;
 }
+
+
+/*Guardas posiciones
+int main () {
+    cin.tie(0) -> sync_with_stdio(false);
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n, x, y;
+        cin >> n >> x >> y;
+        my_map<long long, vector<int> > vistos(2 * n);
+        long long resp = 0;
+        for (int i = 0; i < n; ++i) {
+            long long a;
+            cin >> a;
+            long long resto_x = a % x;
+            long long resto_y = a % y;
+            long long complemento_x = (x - resto_x) % x;
+            long long clave_propia = resto_x * y + resto_y;
+            long long clave_buscada = complemento_x * y + resto_y;
+
+            vector<int> *antes = vistos.find(clave_buscada);
+            if (antes) {
+                resp += (long long)antes->size();
+                for (int k = 0; k < (int)antes->size(); ++k) {
+                    cout << (*antes)[k] + 1 << ' ' << i + 1 << '\n';
+                }
+            }
+            vistos[clave_propia].push_back(i);
+        }
+        cout << resp << '\n';
+    }
+    return 0;
+}
+*/

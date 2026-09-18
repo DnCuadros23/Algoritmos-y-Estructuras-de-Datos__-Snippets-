@@ -38,4 +38,17 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_Sem_5/G.cpp
         Ejercicios_Sem_5/H.cpp
         Ejercicios_Sem_5/I.cpp
-        Ejercicios_Sem_5/J.cpp)
+        Ejercicios_Sem_5/J.cpp
+        Ejercicios_Sem_5/Lista_/Contains_Duplicate.cpp
+        Ejercicios_Sem_5/Lista_/Two_Sum.cpp
+        "Ejercicios_Sem_5/Lista_/Registration_System.cpp"
+        "Ejercicios_Sem_5/Lista_/Contains_Duplicate II.cpp"
+        Ejercicios_Sem_5/Lista_/Subarray_Sums_I.cpp
+        Ejercicios_Sem_5/Lista_/Distinct_Values_Subarrays.cpp
+        Ejercicios_Sem_5/Lista_/Same_Differences.cpp
+        Ejercicios_Sem_5/Lista_/Group_Anagrams.cpp
+        Ejercicios_Sem_5/Lista_/Divisible_Pairs.cpp
+        Ejercicios_Sem_5/Lista_/Subarray_Sums_II.cpp
+        Ejercicios_Sem_5/Lista_/Romantic_Glasses.cpp
+        "Ejercicios_Sem_5/Lista_/Monocarp's String.cpp"
+)

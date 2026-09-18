@@ -229,22 +229,24 @@ struct my_map {
 };
 
 
+int main() {
+    cin.tie(0)-> sync_with_stdio(false);
+    int n, k;
+    if (!(cin>>n>>k)) return 0;
+    my_map<int,int> ultima_posicion;
+    bool encontrado=false;
+    for (int i=0; i<n; ++i) {
+        int x;
+        cin>>x;
+        if (ultima_posicion.has_key(x)) {
+            if (i-ultima_posicion[x]<=k) {
+                encontrado=true;
+            }
 
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
-    int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+        }
+    ultima_posicion[x] = i;
     }
-    cout << n - mejor << '\n';
+    if (encontrado) cout <<"Encontrado\n";
+    else cout<<"No encontrado\n";
     return 0;
 }

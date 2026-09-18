@@ -1,10 +1,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
-#include <utility>
 #include <algorithm>
 using namespace std;
-
 typedef unsigned long long ull;
 
 //  FUNCIONES HASH  (TODAS globales, fuera del struct)
@@ -13,8 +11,6 @@ typedef unsigned long long ull;
 // Enteros con signo: polinomio en base B sobre los digitos.
 // El do-while procesa el 0, y el signo entra en el valor inicial
 // para que -12 y 12 no caigan en el mismo bucket.
-
-
 
 //---------Funciones hashing-------
 ull hash_valor(long long k) {
@@ -69,7 +65,12 @@ ull hash_valor(const pair<int, int> &p) {
     const ull B = 1000003, MOD = 1000000007ULL;
     return ((ull)(unsigned int)p.first * B + (ull)(unsigned int)p.second + 1) % MOD;
 }
-
+ull hash_valor(const pair<long long, long long> &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = (ull)p.first % MOD;
+    h = (h * B + (ull)p.second) % MOD;
+    return h;
+}
 //  TABLA HASH CON ENCADENAMIENTO SEPARADO
 //  chains[b] guarda TODAS las claves cuyo hash cae en el bucket b.
 //  Manteniendo alpha = n/m acotado, cada operacion es O(1) esperado.
@@ -227,24 +228,74 @@ struct my_map {
         }
     }
 };
+struct Par {
+    long long a, b;
+    Par() : a(0), b(0) {}
+    Par(long long a, long long b) : a(a), b(b) {}
+};
 
+bool operator == (const Par &p, const Par &q) {
+    return p.a == q.a and p.b == q.b;
+}
 
+ull hash_valor(const Par &p) {
+    const ull B = 1000003, MOD = 1000000007ULL;
+    ull h = hash_valor(p.a);
+    h = (h * B + hash_valor(p.b)) % MOD;
+    return h;
+}
 
-int main () {
-    cin.tie(0) -> sync_with_stdio(false);
-    int n;
-    cin >> n;
-    my_map<long long, int> cont(2 * n);
-    long long suma = 0;
-    int mejor = 0;
-    for (int i = 0; i < n; ++i) {
-        long long a;
-        cin >> a;
-        suma += a;
-        ++cont[suma];
-        if (cont[suma] > mejor)
-            mejor = cont[suma];
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+
+        // 1. Diferencia total D = (#a) - (#b)
+        int D = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == 'a') D++;
+            else D--;
+        }
+
+        // Ya esta equilibrada
+        if (D == 0) {
+            cout << 0 << "\n";
+            continue;
+        }
+
+        // clave: suma acumulada, valor: ultima posicion donde aparecio
+        my_map<int, int> ultima;
+        ultima[0] = -1;                 // caso base: suma 0 antes de empezar
+
+        int suma_actual = 0;
+        int minima_longitud = n + 1;
+
+        for (int i = 0; i < n; ++i) {
+            if (s[i] == 'a') suma_actual++;
+            else suma_actual--;
+
+            // Que suma debia haber antes para que el trozo (pos_previa, i] valga D
+            int buscado = suma_actual - D;
+
+            if (ultima.has_key(buscado)) {
+                int pos_previa = ultima.get(buscado);   // get NO inserta
+                int longitud = i - pos_previa;
+                if (longitud < minima_longitud) minima_longitud = longitud;
+            }
+
+            // Guardamos o actualizamos la ultima vez que vimos esta suma
+            ultima[suma_actual] = i;
+        }
+
+        // Borrar toda la cadena no vale
+        if (minima_longitud >= n) cout << -1 << "\n";
+        else cout << minima_longitud << "\n";
     }
-    cout << n - mejor << '\n';
     return 0;
 }
