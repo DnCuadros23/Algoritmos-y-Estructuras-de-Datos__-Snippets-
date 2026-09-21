@@ -54,4 +54,6 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         EC3_Luciano/C.cpp
         EC3_Luciano/B.cpp
         EC3_Luciano/A.cpp
+        EC3/B.cpp
+        EC3/Prueba.cpp
 )
