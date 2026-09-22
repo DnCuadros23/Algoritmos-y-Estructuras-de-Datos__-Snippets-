@@ -3,7 +3,7 @@
 #include <string>
 #include <algorithm>
 using namespace std;
-
+ 
 
 //https://github.com/DnCuadros23/Algoritmos-y-Estructuras-de-Datos__-Snippets-.git
 typedef unsigned long long ull;
@@ -257,17 +257,17 @@ int main() {
     long long n,x;
     cin>>n>>x;
     my_map<long long, long long> my_map(2*n); //complemto=a
-    for (int i=0; i<n; i++) {
+    while (n--){
         long long a;
         cin>>a;
         long long complemento=a^x;
-        if (my_map.has_key(complemento)) {
-                cout<<"SI";
+        if (my_map.get(complemento,0)) {
+            cout<<"SI";
             return 0;
-
         }
-        ++my_map[a];
+        my_map[a]=1;
     }
     cout<<"NO";
+
     return 0;
 }
