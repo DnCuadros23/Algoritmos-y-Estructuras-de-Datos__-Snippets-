@@ -220,7 +220,7 @@ int main() {
         int x;
         cin >> x;
         T.insert(x);
-        cout << T.h(T.root) << " " << T.root -> data << '\n';
     }
+    T.print_inorder();
     return 0;
 }

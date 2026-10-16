@@ -71,4 +71,7 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Red-Black-Tree.cpp
         Treap.cpp
         "Recursion y BackTracking.cpp"
+        EC4_Luciano/A.cpp
+        EC4_Luciano/B.cpp
+        EC4_Luciano/C.cpp
 )
