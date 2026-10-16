@@ -56,4 +56,19 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         EC3_Luciano/A.cpp
         EC3/B.cpp
         EC3/Prueba.cpp
+        Ejercicios_Sem_7/A.cpp
+        Ejercicios_Sem_7/B.cpp
+        Ejercicios_Sem_7/C.cpp
+        heap.cpp
+        Ejercicios_Sem_7/D.cpp
+        Ejercicios_Sem_7/F.cpp
+        Ejercicios_Sem_7/G.cpp
+        Ejercicios_Sem_7/H.cpp
+        AVL.cpp
+        Ejercicios_Sem_10/B.cpp
+        Ejercicios_Sem_10/A.cpp
+        Ejercicios_Sem_10/F.cpp
+        Red-Black-Tree.cpp
+        Treap.cpp
+        "Recursion y BackTracking.cpp"
 )
