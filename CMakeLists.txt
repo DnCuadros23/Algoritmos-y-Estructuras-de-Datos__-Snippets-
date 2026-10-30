@@ -74,4 +74,36 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         EC4_Luciano/A.cpp
         EC4_Luciano/B.cpp
         EC4_Luciano/C.cpp
+        EC4/A.cpp
+        Puntos_extra_EP/A.cpp
+        Puntos_extra_EP/B.cpp
+        Puntos_extra_EP/C.cpp
+        Puntos_extra_EP/D.cpp
+        Ejercicios_Sem_11/A.cpp
+        Ejercicios_Sem_11/B.cpp
+        Ejercicios_Sem_11/C.cpp
+        Ejercicios_Sem_11/D.cpp
+        Ejercicios_Sem_11/E.cpp
+        Ejercicios_Sem_11/F.cpp
+        Ejercicios_Sem_11/G.cpp
+        Ejercicios_Sem_12/A.cpp
+        Ejercicios_FR_EC5/A_Grafos.cpp
+        Ejercicios_FR_EC5/B_Grafos.cpp
+        Ejercicios_FR_EC5/C_Grafo.cpp
+        Ejercicios_FR_EC5/D_Grafos.cpp
+        Ejercicios_FR_EC5/E.cpp
+        Ejercicios_FR_EC5/F.cpp
+        Ejercicios_FR_EC5/G.cpp
+        Ejercicios_FR_EC5/Plantilla_1.cpp
+        Ejercicios_FR_EC5/Plantilla_2.cpp
+        Ejercicios_FR_EC5/Plantilla_3.cpp
+        Ejercicios_FR_EC5/Plantilla_4.cpp
+        Ejercicios_FR_EC5/Plantilla_5.cpp
+        Ejercicios_FR_EC5/Plantilla_6.cpp
+        Ejercicios_FR_EC5/Plantilla_7.cpp
+        Ejercicios_FR_EC5/Plantilla_8.cpp
+        Ejercicios_FR_EC5/Plantilla_9.cpp
+        Ejercicios_FR_EC5/Plantilla_10.cpp
+        Ejercicios_FR_EC5/Plantilla_11.cpp
+        Ejercicios_FR_EC5/A.cpp
 )
