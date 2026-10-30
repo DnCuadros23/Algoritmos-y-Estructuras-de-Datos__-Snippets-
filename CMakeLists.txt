@@ -106,4 +106,5 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_FR_EC5/Plantilla_10.cpp
         Ejercicios_FR_EC5/Plantilla_11.cpp
         Ejercicios_FR_EC5/A.cpp
+        Ejercicios_FR_EC5/B.cpp
 )
