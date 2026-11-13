@@ -113,4 +113,6 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_Sem_13/B.cpp
         Ejercicios_Sem_13/C.cpp
         Ejercicios_Sem_13/D.cpp
+        Practica_EC6/Plantilla_1.cpp
+        Practica_EC6/Plantilla_2.cpp
 )
