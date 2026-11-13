@@ -107,4 +107,10 @@ add_executable(Algoritmos_y_Estructuras_de_Datos___Snippets_
         Ejercicios_FR_EC5/Plantilla_11.cpp
         Ejercicios_FR_EC5/A.cpp
         Ejercicios_FR_EC5/B.cpp
+        Ejercicios_Sem_13/A_referencia.cpp
+        Ejercicios_Sem_13/A_GLOBAL.cpp
+        Ejercicios_Sem_13/A_Pseudoglobal.cpp
+        Ejercicios_Sem_13/B.cpp
+        Ejercicios_Sem_13/C.cpp
+        Ejercicios_Sem_13/D.cpp
 )
